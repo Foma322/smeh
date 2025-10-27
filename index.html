@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Моя мелодия</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 20px;
+      background: #f9f9f9;
+    }
+    h1 {
+      color: #333;
+    }
+    #player {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎶 Спасибо, что послушал(а)!</h1>
+  <audio id="audio" controls autoplay>
+    <source src="smeh.mp3" type="audio/mpeg">
+    Ваш браузер не поддерживает аудио.
+  </audio>
+
+  <script>
+    // Попытка автовоспроизведения (работает в большинстве случаев после 2023 г.)
+    document.addEventListener('DOMContentLoaded', () => {
+      const audio = document.getElementById('audio');
+      audio.play().catch(e => {
+        // Если autoplay заблокирован — ничего страшного, кнопка "Play" есть
+        console.log("Автовоспроизведение заблокировано. Нажмите Play.");
+      });
+    });
+  </script>
+</body>
+</html>
